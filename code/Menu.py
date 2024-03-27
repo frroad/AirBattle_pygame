@@ -6,7 +6,7 @@ import pygame
 from pygame import Surface, Rect
 from pygame.font import Font
 
-from code.Const import WIN_WIDGHT, COLOR_BLUE, MENU_OPTION, COLOR_WHITE, COLOR_DARKYELLOW
+from code.Const import WIN_WIDGHT, C_BLUE, MENU_OPTION, C_WHITE, C_DARKYELLOW
 
 
 class Menu:
@@ -23,16 +23,16 @@ class Menu:
 
         while (True):
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(50, "AIR BATTLE", COLOR_BLUE, (WIN_WIDGHT / 2, 70))
-            self.menu_text(50, "SHOTTER GAME", COLOR_BLUE, (WIN_WIDGHT / 2, 120))
+            self.menu_text(50, "AIR BATTLE", C_BLUE, (WIN_WIDGHT / 2, 70))
+            self.menu_text(50, "SHOTTER GAME", C_BLUE, (WIN_WIDGHT / 2, 120))
 
 
 
             for i in range(len(MENU_OPTION)):
                if i == menu_option:
-                self.menu_text(20, MENU_OPTION[i], COLOR_DARKYELLOW, (WIN_WIDGHT / 2, 200 + 30 * i))
+                self.menu_text(20, MENU_OPTION[i], C_DARKYELLOW, (WIN_WIDGHT / 2, 200 + 30 * i))
                else:
-                 self.menu_text(20, MENU_OPTION[i], COLOR_WHITE, (WIN_WIDGHT / 2, 200 + 30 * i))
+                 self.menu_text(20, MENU_OPTION[i], C_WHITE, (WIN_WIDGHT / 2, 200 + 30 * i))
 
             pygame.display.flip()
 

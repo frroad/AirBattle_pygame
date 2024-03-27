@@ -3,9 +3,11 @@ import pygame
 WIN_WIDGHT = 576
 WIN_HEIGHT = 324
 
-COLOR_BLUE = (135, 206, 250)
-COLOR_WHITE = (255, 255, 255)
-COLOR_DARKYELLOW = (255, 140, 0)
+C_BLUE = (135, 206, 250)
+C_WHITE = (255, 255, 255)
+C_DARKYELLOW = (255, 140, 0)
+C_GREEN = (0,100,0)
+C_RED = (100, 0, 0)
 
 MENU_OPTION = ('NEW GAME 1P',
                'NEW GAME 2P - COOPERATIVE',
@@ -35,13 +37,40 @@ ENTITY_HEALTH= {'Level1Bg0':999,
                 'Level1Bg2':999,
                 'Player1':300,
                 'Player2':300,
-                'Enemy1':200,
-                'Enemy2':200,
+                'Enemy1':50,
+                'Enemy2':75,
                 'Player1Shot':1,
                 'Player2Shot':1,
-                'Enemy1Shot':3,
-                'Enemy2Shot':3,
+                'Enemy1Shot':1,
+                'Enemy2Shot':1,
                 }
+
+ENTITY_DAMAGE= {'Level1Bg0':0,
+                'Level1Bg1':0,
+                'Level1Bg2':0,
+                'Player1':1,
+                'Player2':1,
+                'Enemy1':1,
+                'Enemy2':1,
+                'Player1Shot':25,
+                'Player2Shot':20,
+                'Enemy1Shot':20,
+                'Enemy2Shot':15,
+                }
+
+ENTITY_SCORE= {'Level1Bg0':0,
+                'Level1Bg1':0,
+                'Level1Bg2':0,
+                'Player1':1,
+                'Player2':1,
+                'Enemy1':100,
+                'Enemy2':125,
+                'Player1Shot':0,
+                'Player2Shot':0,
+                'Enemy1Shot':0,
+                'Enemy2Shot':0,
+                }
+
 
 PLAYER_KEY_UP = {'Player1': pygame.K_UP,
                  'Player2': pygame.K_w}
