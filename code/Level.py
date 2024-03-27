@@ -7,8 +7,11 @@ import pygame.display
 from pygame import Surface
 
 from code.Const import MENU_OPTION, EVENT_ENEMY
+from code.Enemy import Enemy
 from code.Entity import Entity
 from code.EntityFactory import EntityFactory
+from code.EntityMediator import EntityMediator
+from code.Player import Player
 
 
 class Level:
@@ -29,10 +32,25 @@ class Level:
         pygame.mixer_music.play()
         pygame.mixer_music.set_volume(1)
         while True:
+            #limitar fps do game
             clock.tick(75)
+
+            #atualizar tela
+            pygame.display.flip()
+
+            #Verificar relacionamento de entidades
+            EntityMediator.verif_collision(entity_list=self.entity_list)
+            EntityMediator.verify_health(entity_list=self.entity_list)
+
+            # for para desenhar todas entidades
             for ent in self.entity_list:
                 self.window.blit(source=ent.surf, dest=ent.rect)
                 ent.move()
+                if isinstance(ent, (Player, Enemy)):
+                    shoot =ent.shoot()
+                    if shoot is not None:
+                        self.entity_list.append(shoot)
+            #Conferir eventos
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     pygame.quit()
@@ -40,6 +58,6 @@ class Level:
                 if event.type == EVENT_ENEMY:
                     choice = random.choice(('Enemy1','Enemy2'))
                     self.entity_list.append(EntityFactory.get_entity(choice))
-            pygame.display.flip()
+
         pass
 
